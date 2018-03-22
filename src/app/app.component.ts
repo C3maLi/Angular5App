@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Shopping App';
   public options = {
-    position: ['top', 'right'],
+    position: ['top', 'left'],
     timeOut: 3000,
     lastOnBottom: true
   };

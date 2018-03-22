@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,6 +16,8 @@ import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component
 import { LoggedComponent } from './account/logged/logged.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CartService } from './cart/cart.service';
+import { VatAddedPipe } from './product/vat-added.pipe';
+import { ProductFilterPipe } from './product/product-filter.pipe';
 
 // 3. party
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -32,11 +35,14 @@ import {
     ShippingDetailComponent,
     CartSummaryComponent,
     LoggedComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    VatAddedPipe,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     HttpModule,
     AngularFontAwesomeModule,

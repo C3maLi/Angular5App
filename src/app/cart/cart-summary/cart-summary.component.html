@@ -1,3 +1,13 @@
-<p>
-  cart-summary works!
-</p>
+<div class="btn-group">
+  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <fa name="shopping-cart"></fa> {{totalCartItemPrice | currency:'₺'}} ({{totalCartItem}})
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a *ngFor="let item of cartItems" class="dropdown-item">
+      <fa name="times" class="btn btn-sm btn-danger"></fa> {{item.product.productName | uppercase}} ({{item.unitPrice}}) - {{item.quantity}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item">
+      <b>Go to Cart</b>
+    </a>
+  </div>
+</div>
