@@ -1,3 +1,40 @@
-<p>
-  cart works!
-</p>
+<h4 class="page-header">
+  My Cart
+</h4>
+<div>
+  <table class="table" *ngIf="cartItems?.length>0">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Unit Price</th>
+        <th>Units In Stock</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>
+          {{item.product.productName}}
+        </td>
+        <td>
+          {{item.product.quantityPerUnit}}
+        </td>
+        <td>
+          {{item.product.unitPrice | currency : '₺'}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+        <td>
+          {{item.product.unitPrice*item.quantity | currency:'₺'}}
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="removeFromCart(item.product)">
+            <fa name="times"></fa> Remove From Cart</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

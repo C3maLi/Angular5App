@@ -1,24 +1,24 @@
-<div class="container">
-  <h4 class="page-header">Products</h4>
-  <div *ngIf="filterText">
-    You searched for
-    <b>{{filterText}}</b>
-  </div>
-  <div class="">
-    <input type="text" class="form-control" placeholder="Type something..." [(ngModel)]="filterText">
-  </div>
-  <br/>
-  <div>
-    <ul class="list-group">
-      <li *ngFor="let product of products | productFilter:filterText" class="list-group-item">
-        <button (click)="addToCart(product)" class="btn btn-sm btn-primary float-right">
-          <fa name="plus"></fa> Add to Cart</button>
-        <h5>
-          <b>{{product.productName | uppercase}}</b>
-        </h5>
-        <p>{{product.quantityPerUnit}}</p>
-        <h6>{{product.unitPrice | currency:'₺'}} (VAT included {{product.unitPrice | vatAdded | currency:'₺'}})</h6>
-      </li>
-    </ul>
-  </div>
+<h4 class="page-header">Products
+  <small>({{products?.length}})</small>
+</h4>
+<div *ngIf="filterText">
+  You searched for
+  <b>{{filterText}}</b>
+</div>
+<div class="">
+  <input type="text" class="form-control" placeholder="Type something..." [(ngModel)]="filterText">
+</div>
+<br/>
+<div>
+  <ul class="list-group">
+    <li *ngFor="let product of products | productFilter:filterText" class="list-group-item">
+      <button (click)="addToCart(product)" class="btn btn-sm btn-primary float-right">
+        <fa name="plus"></fa> Add to Cart</button>
+      <h5>
+        <b>{{product.productName | uppercase}}</b>
+      </h5>
+      <p>{{product.quantityPerUnit}}</p>
+      <h6>{{product.unitPrice | currency:'₺'}} (VAT included {{product.unitPrice | vatAdded | currency:'₺'}})</h6>
+    </li>
+  </ul>
 </div>

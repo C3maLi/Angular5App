@@ -4,5 +4,15 @@
     <app-cart-summary></app-cart-summary>
   </form>
 </nav>
-<app-product></app-product>
+<br/>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3">
+      <app-category></app-category>
+    </div>
+    <div class="col-lg-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
 <simple-notifications [options]="options"></simple-notifications>

@@ -3,6 +3,7 @@ import { Product } from './product';
 import { ProductService } from './product.service';
 import { NotificationsService } from 'angular2-notifications';
 import { CartService } from '../cart/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -16,16 +17,19 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private notificationService: NotificationsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.getProducts();
+    this.activatedRoute.params.subscribe(params => {
+      this.getProducts(params['seoUrl']);
+    });
   }
 
   // get products
-  getProducts() {
-    this.productService.getProducts().subscribe(p => {
+  getProducts(seoUrl: string) {
+    this.productService.getProducts(seoUrl).subscribe(p => {
       this.products = p;
     });
   }

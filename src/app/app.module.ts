@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,6 +26,27 @@ import {
   SimpleNotificationsModule,
   NotificationsService
 } from 'angular2-notifications';
+import { CategoryComponent } from './category/category.component';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'products',
+    pathMatch: 'full'
+  },
+  {
+    path: 'products',
+    component: ProductComponent
+  },
+  {
+    path: 'products/:seoUrl',
+    component: ProductComponent
+  },
+  {
+    path: 'my-cart',
+    component: CartComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -37,7 +59,8 @@ import {
     LoggedComponent,
     NotFoundComponent,
     VatAddedPipe,
-    ProductFilterPipe
+    ProductFilterPipe,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -45,13 +68,14 @@ import {
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    RouterModule.forRoot(appRoutes),
     AngularFontAwesomeModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [
     {
       provide: 'apiUrl',
-      useValue: 'http://northwindapi.azurewebsites.net/api/'
+      useValue: 'http://northwindapi.azurewebsites.net'
     },
     NotificationsService,
     CartService
