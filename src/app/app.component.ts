@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
+import { CartService } from './cart/cart.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  cartService: CartService;
+  notificationService: NotificationsService;
   title = 'Shopping App';
   public options = {
     position: ['top', 'left'],
     timeOut: 3000,
     lastOnBottom: true
   };
+
+  constructor(injector: Injector) {
+    this.cartService = injector.get(CartService);
+    this.notificationService = injector.get(NotificationsService);
+  }
 }

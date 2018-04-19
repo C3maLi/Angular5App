@@ -5,8 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
-
 // general
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -22,10 +20,7 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
 
 // 3. party
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import {
-  SimpleNotificationsModule,
-  NotificationsService
-} from 'angular2-notifications';
+import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifications';
 import { CategoryComponent } from './category/category.component';
 
 const appRoutes: Routes = [
@@ -66,7 +61,6 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     AngularFontAwesomeModule,
