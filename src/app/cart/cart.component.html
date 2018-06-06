@@ -1,5 +1,8 @@
 <h4 class="page-header">
   My Cart
+  <a href="#" *ngIf="cartItems.length>0" routerLink="/shipping-detail" class="btn btn-xs btn-primary float-right mb-2">Complete Shopping
+    <i class="fa fa-arrow-right"></i>
+  </a>
 </h4>
 <div>
   <table class="table">

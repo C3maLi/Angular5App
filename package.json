@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve -o --port=4209",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "st": "ng serve -o --port=4209 --buildOptimizer=false --serviceWorker=false --disableHostCheck=false --sourcemap=false"
   },
   "private": true,
   "dependencies": {

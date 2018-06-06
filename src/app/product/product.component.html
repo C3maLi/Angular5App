@@ -25,11 +25,14 @@
 </div>
 <br/>
 <br/>
-<nav aria-label="Page Navigation">
-  <ul class="pagination">
-
-    <li *ngFor="let page of pager.pageList" class="page-item" [class.active]="page===pager.currentPage">
-      <a class="page-link" href="javascript:;" (click)="setPage(page)">{{page}}</a>
-    </li>
-  </ul>
-</nav>
+<div class="row">
+  <div class="col-lg-12">
+    <nav aria-label="Page Navigation">
+      <ul class="pagination">
+        <li *ngFor="let page of pager.pageList" class="page-item" [class.active]="page===pager.currentPage">
+          <a class="page-link" href="javascript:;" (click)="setPage(page)">{{page}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

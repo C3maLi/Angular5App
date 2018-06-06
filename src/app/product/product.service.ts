@@ -13,7 +13,7 @@ export class ProductService {
     const category = seoUrl ? 'products/' + seoUrl : 'products';
 
     return this.http
-      .get(this.apiUrl + '/api/' + category)
+      .get(this.apiUrl + category)
       .map(response => response.json());
   }
 }

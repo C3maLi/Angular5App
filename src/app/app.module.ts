@@ -14,9 +14,12 @@ import { ShippingDetailComponent } from './shipping-detail/shipping-detail.compo
 import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 import { LoggedComponent } from './account/logged/logged.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CartService } from './cart/cart.service';
 import { VatAddedPipe } from './product/vat-added.pipe';
 import { ProductFilterPipe } from './product/product-filter.pipe';
+
+// services
+import { CartService } from './cart/cart.service';
+import { AccountService } from './account/account.service';
 
 // 3. party
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -40,39 +43,28 @@ const appRoutes: Routes = [
   {
     path: 'my-cart',
     component: CartComponent
+  },
+  {
+    path: 'shipping-detail',
+    component: ShippingDetailComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
   }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductComponent,
-    CartComponent,
-    AccountComponent,
-    ShippingDetailComponent,
-    CartSummaryComponent,
-    LoggedComponent,
-    NotFoundComponent,
-    VatAddedPipe,
-    ProductFilterPipe,
-    CategoryComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes),
-    AngularFontAwesomeModule,
-    SimpleNotificationsModule.forRoot()
-  ],
+  declarations: [AppComponent, ProductComponent, CartComponent, AccountComponent, ShippingDetailComponent, CartSummaryComponent, LoggedComponent, NotFoundComponent, VatAddedPipe, ProductFilterPipe, CategoryComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes), AngularFontAwesomeModule, SimpleNotificationsModule.forRoot()],
   providers: [
     {
       provide: 'apiUrl',
-      useValue: 'http://northwindapi.azurewebsites.net'
+      useValue: 'http://northwindapi.azurewebsites.net/api/'
     },
     NotificationsService,
-    CartService
+    CartService,
+    AccountService
   ],
   bootstrap: [AppComponent]
 })

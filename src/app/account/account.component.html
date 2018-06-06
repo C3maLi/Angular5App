@@ -1,3 +1,35 @@
-<p>
-  account works!
-</p>
+<h4 class="page-header">Account</h4>
+<div class="container">
+  <div id="loginBox">
+    <div class="card">
+      <div class="card-header">
+        <div class="panel-title text-center">Login Screen</div>
+      </div>
+      <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" id="form" class="form-horizontal">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+            <input type="text" name="user" ngModel placeholder="Username" class="form-control" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-lock"></i>
+              </span>
+            </div>
+            <input type="password" ngModel name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div class="controls">
+            <button [disabled]="loginForm.invalid" class="btn btn-primary pull-right" type="submit">
+              <i class="glypicon glypicon-log-in"></i> Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
-<p>
-  logged works!
-</p>
+<div *ngIf="isLogged" class="alert alert-success">
+  Welcome,
+  <a href (click)="logOut()" class="pull-right">Log Out</a>
+</div>

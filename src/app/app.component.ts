@@ -12,7 +12,7 @@ export class AppComponent {
   notificationService: NotificationsService;
   title = 'Shopping App';
   public options = {
-    position: ['top', 'left'],
+    position: ['bottom', 'right'],
     timeOut: 3000,
     lastOnBottom: true
   };

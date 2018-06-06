@@ -10,7 +10,7 @@ import { Category } from './category';
 export class CategoryService {
   constructor(private http: Http, @Inject('apiUrl') private apiUrl) {}
 
-  url: string = this.apiUrl + '/api/categories';
+  url: string = this.apiUrl + '/categories';
 
   getCategories(): Observable<Category[]> {
     return this.http.get(this.url).map(response => response.json());
